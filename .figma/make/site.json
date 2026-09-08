@@ -1,0 +1,11 @@
+{
+  "title": "Cv Adrien Blanchot",
+  "description": "Create minimalist designer CVs effortlessly with a sleek, user-friendly tool that highlights your skills and experience in a clean, professional format.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* Print button hidden on print */
+.print-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 100;
+  background: #000dff;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity 0.15s;
+}
+.print-btn:hover { opacity: 1; }
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 1.4cm 1.6cm;
+  }
+
+  html, body, #root {
+    height: auto;
+    width: 210mm;
+  }
+
+  body {
+    background: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 12px;
+  }
+
+  .print-btn {
+    display: none !important;
+  }
+
+  .min-h-screen {
+    background: white !important;
+    min-height: unset !important;
+  }
+
+  /* Full bleed — @page margins handle spacing */
+  .max-w-2xl {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  * {
+    transition: none !important;
+  }
+
+  /* Prevent orphaned headers */
+  section {
+    break-inside: avoid;
+  }
+
+  h3, h2 {
+    break-after: avoid;
+  }
+
+  header {
+    break-after: avoid;
+  }
+
+  /* Tighten spacing slightly for A4 fit */
+  .mb-10 { margin-bottom: 1.6rem !important; }
+  .space-y-8 > * + * { margin-top: 1.4rem !important; }
+  .space-y-5 > * + * { margin-top: 1rem !important; }
+}
